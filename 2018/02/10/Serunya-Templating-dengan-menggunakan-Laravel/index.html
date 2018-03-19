@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="ID"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Serunya Templating dengan menggunakan Laravel - Gita Citra Puspita · Cirebon Dev</title><meta name="description" content="Serunya Templating dengan menggunakan Laravel - Gita Citra Puspita - Ayat Maulana"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://cirebondev.github.io/atom.xml" title="Cirebon Dev"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.facebook.com/groups/1071016736296585/" target="_blank" class="nav-list-link">FACEBOOK</a></li><li class="nav-list-item"><a href="https://github.com/cirebondev" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Serunya Templating dengan menggunakan Laravel - Gita Citra Puspita</h1><div class="post-info">10 Feb 2018</div><div class="post-content"><p>Berikut ini adalah rekapan kulgram Cirebon Dev pada hari sabtu malam minggu 10 Februari 2018 oleh Kak Gita Citra Puspita </p>
+<p>Assalamu’alaikum teman-teman.<br>Perkenalkan nama saya adalah Gita Citra Puspita.<br>Saya adalah Web Developer dan Trainer di Kolla.<br>Saya juga merupakan Sekertaris di Komunitas FemaleGeek PHP Indonesia.<br>Tools yang diperlukan:<br>For Linux/Mac:</p>
+<ul>
+<li>xampp</li>
+<li>php cli 7 (dependency-nya)</li>
+<li>composer</li>
+</ul>
+<p>For Windows:</p>
+<ul>
+<li>xampp</li>
+<li>composer</li>
+</ul>
+<p>Tutorial Dasar Laravel yang harus dibaca:</p>
+<ul>
+<li><a href="http://bit.ly/gitasharepengenalanlaravel1" target="_blank" rel="noopener">http://bit.ly/gitasharepengenalanlaravel1</a></li>
+<li><a href="http://bit.ly/gitasharepengenalanlaravel2" target="_blank" rel="noopener">http://bit.ly/gitasharepengenalanlaravel2</a></li>
+<li><a href="http://bit.ly/gitashareroutinglaravel" target="_blank" rel="noopener">http://bit.ly/gitashareroutinglaravel</a></li>
+</ul>
+<p>Aku tidak akan menjelaskan dari proses instalasi atau pengenalan tentang laravel. Aku akan langsung masuk ke pengenalan tentang blade dan praktiknya.<br>Jadi teman-teman yang baru menggunakan Laravel bisa baca-baca dulu materi yang aku siapkan disini.</p>
+<p>Pada malam ini saya akan mengajak teman-teman untuk belajar templating/layouting di Laravel dengan menggunakan blade.<br>Oke template apa yang akan kita oprek?<br>Okay, sebelum kita masuk ke templating aku mau kenalkan kalian terlebih dahulu dengan Blade.<br>Apa itu blade?<br>Blade adalah salah satu fitur dalam laravel yang digunakan untuk menampilkan output pada view. </p>
+<p>Fitur blade ini bisa dibilang sangat canggih, karena kita dapat membuat coding tanpa perlu tag PHP (&lt;?php ?&gt;). </p>
+<p>Selain menampilkan output, blade juga digunakan untuk membuat layout website.<br>Nah kita akan coba lihat perbedaan sebuah view pada laravel yang menggunakan blade dan tidak menggunakan blade.<br>Okay, teman - teman silahkan buka laptop masing-masing dan kita akan mulai membuat sebuah project laravel.<br>Berikut ini aku akan jelaskan langkah-langkah dan perintah untuk membuat project laravel:</p>
+<ol>
+<li><p>Buka terminal / command prompt.</p>
+</li>
+<li><p>Lalu ketik perintah<br><code>cd Desktop</code></p>
+</li>
+<li><p>Setelah itu kita buat project Laravel baru. Kamu akan membuat project Laravel pada Desktop. Pastikan local computer kamu terkoneksi dengan jaringan internet ya.</p>
+</li>
+<li><p>Perintah untuk membuat project baru di Laravel :<br><code>composer create-project — prefer-dist laravel/laravel serunya-templating-dengan-menggunakan-laravel</code></p>
+</li>
+<li><p>Selanjutnya, Composer akan secara otomatis melakukan download dan instalasi package Laravel. Lumayan lama, sekitar 10 menit. Jadi sambil menunggu kamu proses download kamu bisa bikin kopi, susu, atau teh dulu.</p>
+</li>
+<li><p>Oke, kalau berhasil seharusnya kamu menemukan sebuah folder dengan nama serunya-templating-dengan-menggunakan-laravel pada Desktop kamu.</p>
+</li>
+</ol>
+<p>Oh iya, pada kulgram ini aku masih menggunakan Laravel 5.5, aku belum cari tahu sih perbedaannya apa dengan Laravel 5.6. Tapi semoga tidak mempengaruhi yap..<br>Kalau ada kendala/error. Jangan sungkan tanya ya..<br>coba dilihat versi laravelnya mba. Ada di dalam file composer.json<br>Oh, oke untuk laravel 5.2 route masih dalam bentuk file route.php<br>apa kamu menemukan file itu?<br>app/Http/routes.php<br>Ada di situ mba<br>coba kamu buka folder app<br>Lalu buka folder Http<br>Oke, setelah kalian memiliki project laravel. Buka folder dengan nama resource. Kalian akan melihat tampilan seperti pada gambar di bawah ini.</p>
+<p>Sekarang coba teman-teman buat 2 buah file di dalam folder views. Yang satu nama filenya contoh1.php dan yang satu lagi dengan nama contoh2.blade.php. Seperti pada gambar di bawah ini.</p>
+<p>Isi file contoh1.php dengan tulisan di bawah ini.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hallo, <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $nama <span class="meta">?&gt;</span> ! &lt;br\&gt;</span><br><span class="line">Selamat bergabung di website ini.</span><br></pre></td></tr></table></figure></p>
+<p>Setelah itu jangan lupa simpan ya hasil perubahan yang ada pada file contoh1.php.<br>Isi file contoh2.blade.php dengan tulisan di bawah ini.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hallo, &#123;&#123; $nama &#125;&#125;! &lt;br\&gt;</span><br><span class="line">Selamat bergabung di website ini.</span><br></pre></td></tr></table></figure>
+<p>Setelah itu jangan lupa simpan ya hasil perubahan yang ada pada file contoh2.blade.php.<br>Coba kalian buat seperti itu yap…</p>
+<p>Jika sudah selanjutnya kalian tambahkan 2 buah route baru.</p>
+<p>Kalau di laravel 5.2 kamu bisa tambahkan di dalam file rotue.php</p>
+<p>Kalau pada laravel di atas 5.3 kamu bisa tambahkan di dalam file web.php yang ada pada folder route</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//route untuk memanggil view contoh1.php</span></span><br><span class="line">Route::get(<span class="string">'/contoh1/&#123;nama&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($nama)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'contoh1'</span>,[<span class="string">'nama'</span>=&gt;$nama]);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//route untuk memanggil view contoh2.php</span></span><br><span class="line">Route::get(<span class="string">'/contoh2/&#123;nama&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($nama)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'contoh2'</span>,[<span class="string">'nama'</span>=&gt;$nama]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>[&#39;nama&#39;=&gt;$nama]</code> sama aja seperti <code>compact(&#39;nama&#39;)</code><br>Okay setelah itu jangan lupa setiap perubahan/penambahan pada file di simpan yap..</p>
+<p>Sekarang kita coba jalankan service web pada laravel di terminal dengan perintah:<br>php artisan serve</p>
+<p>Selanjutnya buka browser dan akses URL seperti di bawah ini.<br><code>http://localhost:8000/contoh1/gita</code><br>Hasilnya akan seperti pada gambar di bawah ini.</p>
+<p>Kemudian coba kalian akses URL seperti di bawah ini.<br><code>http://localhost:8000/contoh2/gita</code></p>
+<p>Hasilnya akan seperti pada gambar di atas.</p>
+<p>Outputnya memang sama. Namun cara menampilkan parameter <code>$nama</code> yang dikirmkan dari route yang berbeda.</p>
+<p>Jika tidak menggunakan blade, kita masih memerlukan tag php untuk mencetak nilai parameter. </p>
+<p>Coba bayangkan kalau dalam halaman view ada banyak parameter yang kita ingin cetak namun di bagian yang berbeda. Mungkin akan ada banyak tag php yang bertebaran.<br>Nah, kalau kita menggunakan blade, kita cukup panggil nama variabel yang akan di tampilkan nilainya. Lalu di lingkupi dengan blade  `{{}}`  Keunggulan blade ini. Kita bisa sisipkan di html bagian manapun. Hehehe. Lebih bersih coding kita dari tah-tag php.<br>Oke, selanjutnya ktia akan langsung masuk saja ke penggunaan blade sebagai layout pada laravel ya.</p>
+<p>Teman-teman bisa coba download contoh template bootstrap yang saya tampilkan gambarnya.<br>Downloadnya di sini ya.<br><a href="https://medium.com/r/?url=https://github.com/BlackrockDigital/startbootstrap-creative/archive/gh-pages.zip" target="_blank" rel="noopener">https://medium.com/r/?url=https://github.com/BlackrockDigital/startbootstrap-creative/archive/gh-pages.zip</a></p>
+<p>Okey setelah teman-teman download, jangan lupa ekstrak yap.<br>Berarti sekarang teman-teman memiliki 2 folder dan 1 file seperti pada gambar di bawah ini.</p>
+<p>Okay, kita cek isi dari folder startbootstrap-creative-gh-pages.</p>
+<p>Oke.. Sekarang kita bersiap untuk masukan template ini ke dalam project Laravel kita.</p>
+<p>Berikut langkah-langkahnya ya:</p>
+<ol>
+<li>Copy folder vendor, js, img, dan css yang ada di dalam folder startbootstrap-creative-gh-pages ke dalam folder public yang ada pada project laravel kamu</li>
+</ol>
+<p>Gambar di atas adalah folder yang harus kamu copy.</p>
+<p>Nah, folder tersebut teman-teman paste di dalam folder public laravel ya. Hasilnya akan seperti pada gambar di atas.<br>Okay, selanjutnya kita tinggal pindahkan file index.html ke dalam folder views yang ada di dalam folder resource</p>
+<p>Simpan di dalam folder views seperti pada gambar di bawah ini.</p>
+<p>Ganti nama file yang tadinya index.html menjadi index.blade.php</p>
+<p>Oke, selanjutnya kita buka file web.php yang ada pada route, dan kita buat sebuah route yang akan memanggil template ini.</p>
+<p>Aku memilih mengubah route ‘/‘ yang tadinya memanggil file view welcome.blade.php menjadi memanggil file view index.blade.php.<br>Oke selanjutnya kamu bisa coba akses URL <code>http://localhost:8000/</code></p>
+<p>Hasilnya jika sama akan seperti pada gambar di bawah ini.</p>
+<p>Nah, kita sudah menerapkan sebuah template bootstrap pada projet laravel. Sekarang kita akan mulai layouting template ini dengan menggunakan blade.</p>
+<p>Okay, sekarang coba teman-teman buka file index.blade.php yang ada di dalam folder resource/view.</p>
+<p>Beuh, panjang banget ya line codenya ada 272 line code. Nah ini mau kita bagi-bagi. Agar apa. Agar lebih enak aja nanti pas mau edit atau tambah-tambah element pada tampilan.</p>
+<p>Aku biasanya akan membuat beberapa folder di dalam view laraver seperti ini.</p>
+<p>Nah biasanya aku suka pisah-pisah seperti gambar di atas</p>
+<p>Di dalam folder eksternal-files biasanya aku simpan file meta, css, dan javascript yang di panggil oleh layout.</p>
+<p>Okay kita buat filenya dulu ya..</p>
+<p>Semua file dan folder ini aku buat manual ya. Tidak menggunakan perintah artisan.</p>
+<p>Okay, selanjutnya, apa yang akan kita lakukan? Kita akan mulai memindahkan file css dulu yang ada pada file index.blade.php ke dalam file css.blade.php.</p>
+<p>Ini akan kita pindahkan ke dalam file css.blade.php<br>Setelah itu kita simpan perubahan pada file css.blade.php</p>
+<p>Kemudian kembali ke file index.blade.php</p>
+<p>Kita panggil css template dengan menggunakan perintah blade<br><code>@includeif(&#39;eksternal-files.css&#39;)</code> seperti pada gambar di bawah ini.</p>
+<p>Oke aku akan jelaskan fungsi dari<br><code>@includeif</code></p>
+<p><code>@includeif</code> ini sebenarnya sama seperti penggunakan include pada php. </p>
+<p>Kegunaannya untuk menyisipkan isi file php ke dalam file php lainnya.</p>
+<p>Oh iya selain <code>@includeif</code> di blade juga memiliki perintah <code>@include</code>.</p>
+<p>Apa perbedaan antara @includeif dengan <code>@include</code>?</p>
+<p>Kalau file view yang diakses pada <code>@includeif</code> tidak ada, maka tidak akan terjadi error saat service web dijalankan.</p>
+<p>Jika menggunakan <code>@include</code> dan file view yang diakses tidak ada, maka akan langsung error saat halaman di akses.<br><code>@includeif(&#39;eksternal-files.css&#39;)</code></p>
+<p>Nah, aku akan jelaskan maksud dari eksternal-files.css.</p>
+<p>Sama seperti memanggil path / alamat file css.blade.php.<br>Kalau di blade untuk fungsi<code>@include</code> , <code>@includeif</code>, dan <code>@extends</code> akan seperti itu<br>Oke, kita akan lakukan hal yang sama untuk <code>meta.blade.css</code></p>
+<p>Selanjutnya simpan perubahan yang ada pada file <code>meta.blade.php</code></p>
+<p>Pada file index.blade.php kita panggil file meta ini dengan fungsi <code>@includeif</code></p>
+<p>Selanjutnya file <code>js.blade.php</code></p>
+<p>kita pindahkan ke dalam file <code>js.blade.php</code></p>
+<p>Uupps, sorry guys. Tadi nama file js-nya salah :joy:</p>
+<p>Selanjutnya simpan perubahan yang ada pada file <code>js.blade.php</code><br>Pada file index.blade.php kita panggil file js ini dengan fungsi <code>@includeif</code></p>
+<p>oke, sekarang kita sudah memisahkan eksternal file yang ada di dalam folder <code>index.blade.php</code> pada masing-masing bagian.</p>
+<p>Next selanjutnya kita pisahkan item-item yang ada pada file <code>index.blade.php</code></p>
+<p>Coba kita lihat dahulu ya, ada item apa saya pada file <code>index.blade.php</code></p>
+<p>Ada 7 bagian pada file <code>index.blade.php</code>. Aku akan pisahkan 7 bagian itu dalam 7 file berbeda pada folder items. Kita beri tanda dan nama dulu ya. biar gak salah urutan susunannya. Hehehe..</p>
+<p>Nah, aku tandai seperti pada gambar di bawah ini.</p>
+<p>Oke, selanjutnya kita tinggal buat file-file tersebut di dalam folder items yang ada pada views.</p>
+<p>Oke aku sudah buat 7 file, sekarang tinggal memindahkan isi yang ada pada file <code>index.blade.php</code> ke dalam masing-masing file tersebut. Cara memanggilnya juga sama seperti saat memanggil file <code>css.blade.php</code>.</p>
+<p>Untuk bagian ini tidak perlu aku rinci ya. hehehe</p>
+<p>Hasilnya nanti akan seperti ini pada file <code>index.blade.php</code></p>
+<p>Nah, sekarang file index.blade.php kita lebih enak dilihat ya. Hehehe</p>
+<p>Hems karena contoh yang aku buat ini adalah landing page, jadi untuk layout mungkin aku hanya akan memisahkan navigation dengan konten saja.</p>
+<p>Kita buat file landing-page pada folder pages ya.</p>
+<p>nah kita pindahkan beberapa konten yang ada pada <code>index.blade.php</code> ke dalam landing-pages.blade.php<br>ini isi file <code>landing-pages.blade.php</code> untuk sementara<br>Oke selanjutnya kita buat sebuah file dengan nama <code>landing-pages-layouts.blade.php</code> di dalam folder layouts.</p>
+<p>Oke selanjutnya kita pidahkan semua isi index.blade.php ke dalam file <code>landing-pages-layouts.blade.php</code></p>
+<p>Lalu kita tambahkan laber <code>@yield(&#39;content&#39;)</code> di bawah <code>@includeif(&#39;items.navigation&#39;)</code></p>
+<p>Oke, kita menemukan fungsi blade baru yaitu <code>@yield</code></p>
+<p>apa guna fungsi blade ini?</p>
+<p>Gita Citra Pus<br><code>@yield()</code> merupakan fungsi blade yang digunakan untuk mengextend suatu script html.</p>
+<p>Jika diibaratkan sebagai suatu pewarisan, <code>landing-pages-layouts.blade.php</code> merupakan suatu parent view.</p>
+<p>Ketika ada sebuah file view sebagai child view meng-extend parent view ini, maka bagian yang di beri label <code>@yield()</code> dapat dijabarkan script htmlnya pada child view.</p>
+<p>Oke selanjutnya kita buka file landing-pages.blade.php. Ubah isinya seperti pada gambar di bawah ini ya.</p>
+<p>Nah, <code>landing-pages.blade.php</code> adalah sebuah child view yang menerapkan parent view <code>landing-pages-layouts.blade.php.</code></p>
+<p>Ini terlihat dari fungsi blade <code>@extends(&#39;layouts.landing-pages-layouts&#39;)</code></p>
+<p>Nah, pada file landing-pages.blade.php kita menjabarkan isi dari <code>@yield(&#39;content&#39;)</code> yang ada pada parent view <code>landing-pages-layouts.blade.php</code> dengan menggunakan blade <code>@section(&#39;content&#39;)</code>.</p>
+<p>Oh iya, ini aku buatnya memang hanya satu <code>@yield</code> ya pada parent-view dan satu <code>@section</code> pada child-view.</p>
+<p>Kalian bisa membuat banyak <code>@yield</code>pada parent-view sesuai kebutuhan. Nanti pada child-viewnya kalian tinggal jabarkan setiap isi yang diinginkan dengan menggunakan <code>@section</code>.</p>
+<p>Jangan lupa <code>@section</code> harus di tutup dengan @endsection</p>
+<p>Nah, sekarang kita tinggal ubah isi route pada <code>web.php</code> menjadi seperti gambar di bawah ini.</p>
+<p>Kita sudah tidak memakai file index.blade.php lagi. Jadi yang diakses langsung file landing-pages.blade.php yang ada di dalam folder pages.</p>
+<p>Tampilannya seperti di atas.<br>Nah, selanjutnya aku mau kenalkan kamu sama blade yang namanya <code>@each</code></p>
+<p><code>@each</code> ini digunakan untuk merender setiap elemen dalam array atau koleksi dimana setiap element dalam array mengimplementasikan bentuk view yang sama.</p>
+<p>Ini bisa diterapkan pada bagian service</p>
+<p>dan pada bagian portofolio</p>
+<p>Oke, kita kerjakan bagian service dulu..</p>
+<p>Kita lihat, ada sebuah konten yang sebenarnya tampilan viewnya sama yang berbeda hanya isinya saja.</p>
+<p>Bagian yang mana?</p>
+<p>nah, kita buat file baru namanya sub-<code>services.blade.php</code> di dalam folder items</p>
+<p>Isi file <code>sub-services.blade.php</code> dengan script pada gambar di atas</p>
+<p>nah selanjutnya file sub-services.blade.php di ubah isinya seperti pada gambar di bawah ini</p>
+<p>aku salah kasih nama yang sub-service.blade.phpnya</p>
+<p>Okay, isi file <code>services.blade.php</code> di buat seperti pada gambar di bawah ini.</p>
+<p>Okay, aku akan jelaskan dulu ya..</p>
+<p>pada file services.blade.php kita menggunakan 2 buah fungsi blade ya.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@php</span><br><span class="line">$dummy_service = <span class="keyword">array</span>(</span><br><span class="line"><span class="keyword">array</span>(</span><br><span class="line"><span class="string">'icon'</span> =&gt; <span class="string">"fa-diamond"</span>,</span><br><span class="line"><span class="string">'title'</span> =&gt; <span class="string">"Sturdy Templates 1"</span>,</span><br><span class="line"><span class="string">'description'</span> =&gt; <span class="string">"Our templates are updated regularly so they don't break. 1"</span></span><br><span class="line">),</span><br><span class="line"><span class="keyword">array</span>(</span><br><span class="line"><span class="string">'icon'</span> =&gt; <span class="string">"fa-paper-plane"</span>,</span><br><span class="line"><span class="string">'title'</span> =&gt; <span class="string">"Sturdy Templates 2"</span>,</span><br><span class="line"><span class="string">'description'</span> =&gt; <span class="string">"Our templates are updated regularly so they don't break 2."</span></span><br><span class="line">)</span><br><span class="line">);</span><br><span class="line">@endphp</span><br></pre></td></tr></table></figure>
+<p>11:13 PM<br>Aku perlu sebuah data dummy_service yang akan di repeat untuk sebuah view di bawah ini.</p>
+<p>Aku buat dummynya hanya dua data dulu.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@php</span><br><span class="line">$dummy_service = <span class="keyword">array</span>(</span><br><span class="line">  <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">'icon'</span> =&gt; <span class="string">"fa-diamond"</span>,</span><br><span class="line">  <span class="string">'title'</span> =&gt; <span class="string">"Sturdy Templates 1"</span>,</span><br><span class="line">  <span class="string">'description'</span> =&gt; <span class="string">"Our templates are updated regularly so they don't break. 1"</span></span><br><span class="line">  ),</span><br><span class="line">  <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">'icon'</span> =&gt; <span class="string">"fa-paper-plane"</span>,</span><br><span class="line">  <span class="string">'title'</span> =&gt; <span class="string">"Sturdy Templates 2"</span>,</span><br><span class="line">  <span class="string">'description'</span> =&gt; <span class="string">"Our templates are updated regularly so they don't break 2."</span></span><br><span class="line">  )</span><br><span class="line">);</span><br><span class="line">@endphp</span><br></pre></td></tr></table></figure>
+<p>Fungsi di atas itu sama seperti ini kalau tanpa blade ya.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$dummy_service = <span class="keyword">array</span>(</span><br><span class="line">  <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">'icon'</span> =&gt; <span class="string">"fa-diamond"</span>,</span><br><span class="line">  <span class="string">'title'</span> =&gt; <span class="string">"Sturdy Templates 1"</span>,</span><br><span class="line">  <span class="string">'description'</span> =&gt; <span class="string">"Our templates are updated regularly so they don't break. 1"</span></span><br><span class="line">  ),</span><br><span class="line">  <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">'icon'</span> =&gt; <span class="string">"fa-paper-plane"</span>,</span><br><span class="line">  <span class="string">'title'</span> =&gt; <span class="string">"Sturdy Templates 2"</span>,</span><br><span class="line">  <span class="string">'description'</span> =&gt; <span class="string">"Our templates are updated regularly so they don't break 2."</span></span><br><span class="line">  )</span><br><span class="line">);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Okay selanjutnya ada fungsi blade<code>@each</code></p>
+<p>@each(‘items.sub-services’, $dummy_service, ‘service’)</p>
+<p>$dummy_service adalah sebuah data array yang akan di render dan tampilkan secara berulang dengan script html yang ada pada items.sub-services.</p>
+<p>Isi dari file <code>sub-service.blade.php</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="col-lg-3 col-md-6 text-center"&gt;</span><br><span class="line">&lt;div class="service-box mt-5 mx-auto"&gt;</span><br><span class="line">&lt;i class="fa fa-4x &#123;&#123; $service['icon'] &#125;&#125; text-primary mb-3 sr-`icons "&gt;&lt;/i&gt;</span><br><span class="line">&lt;h3 class="mb-3"&gt; &#123;!! $service['title'] !!&#125; &lt;/h3&gt;</span><br><span class="line">&lt;p class="text-muted mb-0"&gt; &#123;!! $service['description'] !!&#125; &lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>Nah, cara menampilkan isi dari array <code>$dummy_service</code> pada view sub-service.blade.php dengan memanggil variabel service</p>
+<p>Hasil tampilan service jadi seperti apa?</p>
+<p>Hanya menampilkan 2 service karena array <code>$dummy_service</code> hanya ada 2 data.<br><code>@each</code> ini kalau pada blade hampir sama fungsinya dengan <code>@foreach</code> hanya saja <code>@each</code> lebih simpeld dari itu.<br>Mungkin nanti aku buat artikel saja ya atau bisa dilanjutkan.<br>Baiklah teman-teman. Aku akhir Kulgram malam ini ya.<br>Terimakasih untuk partisipasinya.</p>
+<p>Insya Allah aku akan buatkan artikelnya dan akan share disini.<br>Bagi teman-teman yang ingin bertanya bisa tanyakan di sini atau japri ya.<br>Selamat malam dan selamat beristirahat</p>
+<h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><p>HILMI KHOIRULLOH<br>Nah mba misalkan kita mau buat variable baru di tapi bukan lewat parameter yang dioper saat manggil fungsi view</p>
+<p>Saya disini biasanya makenya<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@php</span><br><span class="line">$new_var = <span class="keyword">null</span>;</span><br><span class="line">@endphp</span><br></pre></td></tr></table></figure></p>
+<p>Misalkan saya pakai metode diatas saya ngerasa kaya pake php biasa.<br>Jadi intinya apakah bisa membuat variabel baru pada bladenya saja tanpa melalui kode <code>@php @endphp</code> ?<br>JAWABAN<br>Kalau ini berarti kamu melakukan deklarasi nilai variabel pada view ya?</p>
+<p>Iya kalau itu pake bladenya <code>@php</code> dan <code>@endphp</code>.</p>
+<p>Jika menggunakan konsep MVC sebenarnya lebih baik kalau sebuah variabel di definisikan pada controller mas. Kurang tepat jika di definisikan pada view. Memang cara untuk deklarasikan variabel dengan <code>@php</code> dan <code>@endphp</code></p>
+<p>Hilmi Khoirulloh<br>Misalkan <code>@each</code> data arraynya <code>[]</code> error apa tetap ke render mba ?</p>
+<p>JAWABAN<br>kosong maksudnya? Kalau kosong dia tidak akan ada tampilan apa-apa<br>kalo datanya kosong ,hasilnya juga blank ngga error</p>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/02/17/Menjadi-jagoan-GIT-part-1/" class="prev">上一篇</a></div><div class="copyright"><p>© 2015 - 2018 <a href="http://cirebondev.github.io">Ayat Maulana</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
